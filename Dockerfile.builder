@@ -1,7 +1,7 @@
 FROM ghcr.io/its-me/arch-linux:latest
 
 RUN paru -Syu --noconfirm && \
-    paru -S --noconfirm base-devel git sudo github-cli jq && \
+    paru -S --noconfirm base-devel git github-cli jq namcap sudo && \
     paru -Scc --noconfirm
 
 RUN useradd -m builder && \
