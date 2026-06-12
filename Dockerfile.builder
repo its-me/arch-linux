@@ -1,7 +1,7 @@
 FROM ghcr.io/its-me/arch-linux:latest
 
 RUN paru -Syu --noconfirm && \
-    paru -S --noconfirm base-devel github-cli jq namcap openssh && \
+    paru -S --noconfirm base-devel github-cli jq namcap openssh rsync && \
     yes | paru -Scc
 
 RUN useradd -m builder && \
