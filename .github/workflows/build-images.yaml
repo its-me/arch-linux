@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-base:
-    name: GHCR: Build and push base
+    name: "GHCR: Build and push base"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -56,7 +56,7 @@ jobs:
           docker push ghcr.io/${{ github.repository }}:latest
 
   push-base-hub:
-    name: Docker Hub: Publish base
+    name: "Docker Hub: Publish base"
     needs: build-base
     runs-on: ubuntu-latest
     permissions:
@@ -95,7 +95,7 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ needs.build-base.outputs.hash }}
 
   push-base-quay:
-    name: Quay: Publish base
+    name: "Quay: Publish base"
     needs: build-base
     runs-on: ubuntu-latest
     permissions:
@@ -139,7 +139,7 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ needs.build-base.outputs.hash }}
 
   build-builder:
-    name: GHCR: Build and push builder
+    name: "GHCR: Build and push builder"
     needs: build-base
     runs-on: ubuntu-latest
     permissions:
@@ -189,7 +189,7 @@ jobs:
           docker push ghcr.io/${{ github.repository }}:builder
 
   push-builder-hub:
-    name: Docker Hub: Publish builder
+    name: "Docker Hub: Publish builder"
     needs: build-builder
     runs-on: ubuntu-latest
     permissions:
@@ -228,7 +228,7 @@ jobs:
             ghcr.io/${{ github.repository }}:builder-${{ needs.build-builder.outputs.hash }}
 
   push-builder-quay:
-    name: Quay: Publish builder
+    name: "Quay: Publish builder"
     needs: build-builder
     runs-on: ubuntu-latest
     permissions:
